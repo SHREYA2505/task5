@@ -5,7 +5,7 @@ const AgeCalculator = () => {
   const [age, setAge] = useState(0);
 
   const calculateAge = () => {
-    const dateParts = dob.split('/'); // Split the input by /
+    const dateParts = dob.split('/');
     
     if (dateParts.length === 3) {
       const day = parseInt(dateParts[0], 10);
@@ -13,7 +13,7 @@ const AgeCalculator = () => {
       const year = parseInt(dateParts[2], 10);
 
       if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
-        const birthDate = new Date(year, month - 1, day); // Months are zero-based
+        const birthDate = new Date(year, month - 1, day);
         const currentDate = new Date();
         const ageInMilliseconds = currentDate - birthDate;
         const ageInYears = Math.floor(ageInMilliseconds / (365.25 * 24 * 60 * 60 * 1000));
@@ -22,7 +22,6 @@ const AgeCalculator = () => {
       }
     }
 
-    // Handle invalid date input
     alert('Please enter a valid date of birth (dd/mm/yyyy).');
   };
 
